@@ -21,9 +21,18 @@ exports.getOne = async (req, res) => {
 
 exports.create = async (req, res) => {
   try {
-    const nuevo = await Producto.create(req.body);
+    const { nomPro, precioProducto, stockProducto } = req.body;
+
+    // Validación básica
+    if (!nomPro || precioProducto == null || stockProducto == null) {
+      return res.status(400).json({ message: 'Faltan campos obligatorios' });
+    }
+
+    const nuevo = await Producto.create({ nomPro, precioProducto, stockProducto });
+
     res.status(201).json(nuevo);
   } catch (err) {
+    console.error('❌ Error al crear producto:', err); // esto se verá en Render
     res.status(500).json({ error: err.message });
   }
 };
