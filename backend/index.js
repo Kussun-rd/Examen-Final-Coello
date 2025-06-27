@@ -6,7 +6,9 @@ const productosRoutes = require('./routes/productosRoutes');
 
 // ✅ Aplica CORS para permitir solicitudes desde tu frontend en Render
 app.use(cors({
-  origin: 'https://examen-final-coello-frontend.onrender.com' // frontend URL en producción
+  origin: 'https://examen-final-coello-frontend.onrender.com',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type']
 }));
 
 app.use(express.json());
