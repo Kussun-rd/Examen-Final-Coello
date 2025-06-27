@@ -1,0 +1,8 @@
+# Excluir dependencias de ambos proyectos
+/backend/node_modules
+/frontend/node_modules
+
+# Carpetas de build y configuraciones locales
+/frontend/.next
+/frontend/.env
+/backend/.env
