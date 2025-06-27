@@ -1,17 +1,17 @@
-const BASE_URL = 'http://localhost:3001/api/productos';
+const API_URL = 'https://examen-final-coello.onrender.com/api/productos';
 
 export async function getProductos() {
-  const res = await fetch(BASE_URL);
+  const res = await fetch(API_URL);
   return res.json();
 }
 
 export async function getProducto(id) {
-  const res = await fetch(`${BASE_URL}/${id}`);
+  const res = await fetch(`${API_URL}/${id}`);
   return res.json();
 }
 
 export async function createProducto(producto) {
-  const res = await fetch(BASE_URL, {
+  const res = await fetch(API_URL, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(producto)
@@ -20,7 +20,7 @@ export async function createProducto(producto) {
 }
 
 export async function updateProducto(id, producto) {
-  const res = await fetch(`${BASE_URL}/${id}`, {
+  const res = await fetch(`${API_URL}/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(producto)
@@ -29,7 +29,7 @@ export async function updateProducto(id, producto) {
 }
 
 export async function deleteProducto(id) {
-  await fetch(`${BASE_URL}/${id}`, {
+  await fetch(`${API_URL}/${id}`, {
     method: 'DELETE'
   });
 }

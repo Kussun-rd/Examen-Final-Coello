@@ -8,7 +8,7 @@ export default function ProductosPage() {
 
   const fetchProductos = async () => {
     try {
-      const res = await fetch('http://localhost:3001/api/productos');
+      const res = await fetch('https://examen-final-coello.onrender.com/api/productos');
       const data = await res.json();
       setProductos(data);
     } catch (error) {
@@ -20,7 +20,7 @@ export default function ProductosPage() {
     if (!confirm('¿Estás seguro de eliminar este producto?')) return;
 
     try {
-      const res = await fetch(`http://localhost:3001/api/productos/${codProducto}`, {
+      const res = await fetch(`https://examen-final-coello.onrender.com/api/productos/${codProducto}`, {
         method: 'DELETE',
       });
 
